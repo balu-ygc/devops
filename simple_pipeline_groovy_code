@@ -1,0 +1,20 @@
+pipeline {
+agent any 
+    stages {
+        stage('Git Clone') {
+            steps {
+            git 'https://github.com/DevSecOpsG/helloworldsimplejavaprogram.git'
+            }
+        }
+		stage('Build') {
+            steps {
+            bat 'javac helloworld.java'
+            }
+        }
+		stage('Run') {
+            steps {
+            bat 'java Simple'
+            }
+        }
+	}
+}	
