@@ -8,12 +8,17 @@ agent any
         }
 		stage('Build') {
             steps {
-            bat 'javac helloworld.java'
+            sh 'javac helloworld.java'
             }
         }
 		stage('Run') {
             steps {
-            bat 'java Simple'
+            sh 'java Simple'
+            }
+        }
+		stage('Email notification to Team') {
+            steps {
+            mail bcc: '', body: '', cc: 'manager@gmail.com', from: '', replyTo: '', subject: 'test pipeline', to: 'bala@gmail.com'
             }
         }
 	}
